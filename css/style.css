@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.arbitrary-form__style {
+  margin: 20px;
+  width: 100px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.arbitrary-input__style {
+  font: normal 500 20px 'Helvetica', sans-serif;
+  padding-left: 5px;
+}
+
+.arbitrary-submit__btn {
+  outline: none;
+  font: normal 500 20px 'Helvetica', sans-serif;
+}

@@ -5,4 +5,5 @@ export const linksInfo = [
   { filename: 'square-circle.js', link: '../pages/square-circle.html' },
   { filename: 'canvas-images.js', link: '../pages/canvas-images.html' },
   { filename: 'canvas-text.js', link: '../pages/canvas-text.html' },
+  { filename: 'animation-basics.js', link: '../pages/animation-basics.html' },
 ];

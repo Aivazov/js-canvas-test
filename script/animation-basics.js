@@ -45,6 +45,7 @@ animation({
       circleAnimationParams.startPoint,
       circleAnimationParams.endPoint
     );
+    context.closePath();
     context.stroke();
   },
 });
@@ -72,6 +73,7 @@ animation({
       centerX + radius * Math.cos(angle + 2 * diffAngle),
       centerY + radius * Math.sin(angle + 2 * diffAngle)
     );
+    context.closePath();
     context.fill();
   },
 });

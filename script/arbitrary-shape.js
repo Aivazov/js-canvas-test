@@ -1,4 +1,5 @@
 import { returnBtn } from "./helpers/returnBtn.js";
+import { drawStar } from "./helpers/draw-star.js";
 const form = document.createElement("form");
 form.classList.add("arbitrary-form__style");
 
@@ -39,7 +40,7 @@ document.body.prepend(returnBtn);
 canvas.width = 800;
 canvas.height = 750;
 
-drawStar(100, 100, 8, 30, 15);
+drawStar(100, 100, 8, 30, 15, context);
 // shape();
 
 form.addEventListener("submit", (e) => {
@@ -76,34 +77,6 @@ function shape() {
   context.closePath();
   context.fill();
   context.stroke();
-}
-
-function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
-  var rot = (Math.PI / 2) * 3;
-  var x = cx;
-  var y = cy;
-  var step = Math.PI / spikes;
-
-  context.beginPath();
-  context.moveTo(cx, cy - outerRadius);
-  for (let i = 0; i < spikes; i++) {
-    x = cx + Math.cos(rot) * outerRadius;
-    y = cy + Math.sin(rot) * outerRadius;
-    context.lineTo(x, y);
-    rot += step;
-
-    x = cx + Math.cos(rot) * innerRadius;
-    y = cy + Math.sin(rot) * innerRadius;
-    context.lineTo(x, y);
-    rot += step;
-  }
-  context.lineTo(cx, cy - outerRadius);
-  context.closePath();
-  context.lineWidth = 5;
-  context.strokeStyle = "blue";
-  context.stroke();
-  context.fillStyle = "skyblue";
-  context.fill();
 }
 
 function drawsRoundedRect(x = 100 / 2, y = 100, width, height, radius) {

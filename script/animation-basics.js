@@ -1,9 +1,9 @@
-import { returnBtn } from './helpers/returnBtn.js';
-import { animation } from './helpers/animation-func.js';
-const canvas = document.createElement('canvas');
+import { returnBtn } from "./helpers/returnBtn.js";
+import { animation } from "./helpers/animation-func.js";
+const canvas = document.createElement("canvas");
 document.body.append(canvas);
 
-const context = canvas.getContext('2d');
+const context = canvas.getContext("2d");
 
 document.body.prepend(returnBtn);
 canvas.width = 800;
@@ -27,6 +27,14 @@ const triangleAnimationsParams = {
   radius: 10,
   angle: 0,
   angleSpeed: Math.PI * 0.01,
+};
+
+const starAnimationsParams = {
+  centerX: 50,
+  centerY: 300,
+  radius: 10,
+  angle: 0,
+  angleSpeed: Math.PI * 0.03,
 };
 
 animation({
@@ -75,6 +83,39 @@ animation({
     );
     context.closePath();
     context.fill();
+  },
+});
+
+animation({
+  clear() {
+    context.clearRect(40, 250, 100, 400);
+  },
+  update() {
+    starAnimationsParams.angle += starAnimationsParams.angleSpeed;
+  },
+  render() {
+    const diffAngle = (Math.PI * 2) / 3;
+    const { centerX, centerY, radius, angle } = starAnimationsParams;
+    context.beginPath();
+    context.moveTo(
+      centerX + radius * Math.cos(angle),
+      centerY + radius * Math.sin(angle)
+    );
+    context.lineTo(
+      centerX + radius * Math.cos(angle + diffAngle),
+      centerY + radius * Math.sin(angle + diffAngle)
+    );
+    context.lineTo(
+      centerX + radius * Math.cos(angle + 2 * diffAngle),
+      centerY + radius * Math.sin(angle + 2 * diffAngle)
+    );
+    // context.lineTo(
+    //   centerX + radius * Math.cos(angle + diffAngle),
+    //   centerY + radius * Math.sin(angle + diffAngle)
+    // );
+    context.closePath();
+    context.fill();
+    context.stroke();
   },
 });
 
